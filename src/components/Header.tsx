@@ -10,7 +10,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.avif";
 import useCartStore from "@/store/shop-context";
 
 export default function Header() {
@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <div className="flex justify-between py-12 px-[15%] items-center">
       <div className="flex items-center">
-        <img className="w-20 mr-6" src={logo} alt="logo" />
+        <img className="w-20 mr-6 rounded-[50%]" src={logo} alt="logo" />
         <h1 className="text-[#edbf68] text-center uppercase m-0 text-[2.5rem]">
           Elegant Clothing
         </h1>
