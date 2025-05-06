@@ -1,11 +1,11 @@
 import { DUMMY_PRODUCTS } from "@/dummy-products";
 import { useParams } from "react-router-dom";
 import useCartStore from "@/store/shop-context";
-type Product = {
-  id: string;
-  title: string;
-  price: number;
-};
+// type Product = {
+//   id: string;
+//   title: string;
+//   price: number;
+// };
 
 export default function ProductDetailPage() {
   const addItem = useCartStore((state) => state.addItem);
