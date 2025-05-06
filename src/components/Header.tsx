@@ -44,7 +44,7 @@ export default function Header() {
               )}
               {items.length > 0 &&
                 items.map((item) => (
-                  <div className="flex sm:justify-between bg-[#fbd392] px-2 py-1 rounded-[5px]">
+                  <div className="flex justify-between bg-[#fbd392] px-2 py-1 rounded-[5px]">
                     <AlertDialogDescription className="text-[#000] sm:text-[16px] text-xs">
                       {item.product.title}
                     </AlertDialogDescription>
@@ -55,7 +55,7 @@ export default function Header() {
                     <AlertDialogDescription className="text-[#000] sm:text-[13px] text-xs">
                       <button
                         onClick={() => removeItem(item.product.id)}
-                        className="bg-[#fbd392] border-[#d3b17b] hover:bg-red-600 sm:px-2 pl-6 rounded-[4px] sm:mt-[2.5px] cursor-pointer text-red-600"
+                        className="bg-[#fbd392] border-[#d3b17b] hover:bg-white px-2 rounded-[4px] sm:mt-[2.5px] cursor-pointer lg:text-black md:text-black sm:text-red-600 text-red-600"
                       >
                         remove
                       </button>
