@@ -12,59 +12,56 @@ import {
 
 import logo from "../assets/logo.avif";
 import useCartStore from "@/store/shop-context";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const items = useCartStore((state) => state.items);
   const removeItem = useCartStore((state) => state.removeItem);
   return (
-    <div className="flex justify-between py-12 px-[15%] items-center">
-      <div className="flex items-center">
-        <img className="w-20 mr-6 rounded-[50%]" src={logo} alt="logo" />
-        <h1 className="text-[#edbf68] text-center uppercase m-0 text-[2.5rem]">
+    <div className="flex sm:justify-between py-12 sm:px-[15%] sm:items-center justify-around">
+      <div className="sm:flex sm:items-center flex">
+        <Link to="/">
+          <img className="w-15 mr-2 rounded-[50%]" src={logo} alt="logo" />
+        </Link>
+        <h1 className="text-[#edbf68] text-center uppercase sm:m-0  mt-5 text-xs md:text-3xl md:mt-2 lg:text-[2.5rem]">
           Elegant Clothing
         </h1>
       </div>
       <div>
         <AlertDialog>
-          <AlertDialogTrigger className="bg-[#edbf68] rounded-[4px] py-2 px-6 text-[#201e1a] text-xl cursor-pointer hover:bg-[#f5b744]">
+          <AlertDialogTrigger className="bg-[#edbf68] rounded-[4px] sm:py-2 sm:px-6 text-[#201e1a] sm:text-xl cursor-pointer hover:bg-[#f5b744] text-xs py-1 px-4 mr-6 mt-4">
             Cart
           </AlertDialogTrigger>
-          <AlertDialogContent className="bg-[#d3b17b] rounded-[6px]">
+          <AlertDialogContent className="bg-[#d3b17b] sm:rounded-[6px]">
             <AlertDialogHeader>
-              <AlertDialogTitle className="text-2xl text-[#4f3807] uppercase m-0">
+              <AlertDialogTitle className="sm:text-2xl text-[#4f3807] sm:uppercase sm:m-0">
                 Your Cart
               </AlertDialogTitle>
               {items.length === 0 && (
-                <AlertDialogDescription className="text-[#000] text-[16px]">
+                <AlertDialogDescription className="text-[#000] sm:text-[16px]">
                   No items in the cart!
                 </AlertDialogDescription>
               )}
               {items.length > 0 &&
                 items.map((item) => (
-                  <div className="flex justify-between bg-[#fbd392] px-3 py-1 rounded-[5px]">
-                    <AlertDialogDescription className="text-[#000] text-[16px]">
+                  <div className="flex sm:justify-between bg-[#fbd392] px-2 py-1 rounded-[5px]">
+                    <AlertDialogDescription className="text-[#000] sm:text-[16px] text-xs">
                       {item.product.title}
                     </AlertDialogDescription>
-                    <AlertDialogDescription className="text-[#000] text-[16px] bg-[#fbd392] ">
+                    <AlertDialogDescription className="text-[#000] sm:text-[16px] text-[10px] pl-4 bg-[#fbd392]">
                       {item.quantity} piece
                       {item.quantity > 1 && <span>s</span>}
                     </AlertDialogDescription>
-                    <AlertDialogDescription className="text-[#000] text-[13px]">
+                    <AlertDialogDescription className="text-[#000] sm:text-[13px] text-xs">
                       <button
                         onClick={() => removeItem(item.product.id)}
-                        className="bg-[#fbd392] border-[#d3b17b] hover:bg-red-600 px-2 rounded-[4px] mt-[2.5px] cursor-pointer"
+                        className="bg-[#fbd392] border-[#d3b17b] hover:bg-red-600 sm:px-2 pl-6 rounded-[4px] sm:mt-[2.5px] cursor-pointer text-red-600"
                       >
-                        Remove
+                        remove
                       </button>
                     </AlertDialogDescription>
                   </div>
                 ))}
-              {/* <AlertDialogDescription
-                className="text-[#000] pt-2 text-[16px] flex justify-end
-"
-              >
-                Cart Total:<span className="font-bold">$0.00</span>
-              </AlertDialogDescription> */}
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel className="cursor-pointer">
