@@ -9,11 +9,14 @@ import {
 
 import { DUMMY_PRODUCTS } from "@/dummy-products";
 
-import useCartStore from "@/store/shop-context";
+// import useCartStore from "@/store/shop-context";
+import { useCart } from "../store/shoppin-contextapi";
+
 import { Link } from "react-router-dom";
 
 export default function Products() {
-  const addItem = useCartStore((state) => state.addItem);
+  // const addItem = useCartStore((state) => state.addItem);
+  const { addItem } = useCart();
 
   return (
     <div className="w-[80%] mx-auto py-2 sm:w-[70%] sm:mx-auto sm:py-8">

@@ -1,6 +1,7 @@
 import { DUMMY_PRODUCTS } from "@/dummy-products";
 import { useParams } from "react-router-dom";
-import useCartStore from "@/store/shop-context";
+// import useCartStore from "@/store/shop-context";
+import { useCart } from "../store/shoppin-contextapi";
 // type Product = {
 //   id: string;
 //   title: string;
@@ -8,7 +9,8 @@ import useCartStore from "@/store/shop-context";
 // };
 
 export default function ProductDetailPage() {
-  const addItem = useCartStore((state) => state.addItem);
+  // const addItem = useCartStore((state) => state.addItem);
+  const { addItem } = useCart();
   const { productId } = useParams<{ productId: string }>();
 
   const product = DUMMY_PRODUCTS.find((p) => p.id === productId);
@@ -23,7 +25,7 @@ export default function ProductDetailPage() {
         <img
           src={product.image}
           alt={product.title}
-          className="h-70 w-72 sm:h-20 sm:w-20 md:h-120 md:w-100 lg:h-105 lg:w-100  lg:rounded-l-2xl md:rounded-l-2xl sm:rounded-t-2xl rounded-t-2xl"
+          className="h-70 w-75 sm:h-20 sm:w-20 md:h-120 md:w-100 lg:h-105 lg:w-100  lg:rounded-l-2xl md:rounded-l-2xl sm:rounded-t-2xl rounded-t-2xl "
         />
       </div>
       <div className="lg:pt-5 md:pt-5 sm:pt-2 pt-2 lg:pl-0 md:pl-2 sm:pl-3 pl-3">

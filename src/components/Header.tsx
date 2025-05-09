@@ -11,12 +11,16 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import logo from "../assets/logo.avif";
-import useCartStore from "@/store/shop-context";
+// import useCartStore from "@/store/shop-context";
+import { useCart } from "../store/shoppin-contextapi";
+
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const items = useCartStore((state) => state.items);
-  const removeItem = useCartStore((state) => state.removeItem);
+  // const items = useCartStore((state) => state.items);
+  // const removeItem = useCartStore((state) => state.removeItem);
+  const { items, removeItem } = useCart();
+
   return (
     <div className="flex sm:justify-between py-12 sm:px-[15%] sm:items-center justify-around">
       <div className="sm:flex sm:items-center flex">
